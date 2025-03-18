@@ -1,3 +1,4 @@
+import 'package:edupro/lets_you_in.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatefulWidget {
@@ -22,13 +23,28 @@ class _IntroPageState extends State<IntroPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 80, 20, 0),
-                child: Text(
-                  "Skip",
-                  style: TextStyle(
-                    fontFamily: "Jost",
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
+                padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LetsYouIn()),
+                    );
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Colors.transparent,
+                  ).copyWith(
+                    overlayColor: WidgetStateProperty.all(Colors.transparent),
+                  ),
+                  child: Text(
+                    "Skip",
+                    style: TextStyle(
+                      fontFamily: "Jost",
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
@@ -179,6 +195,13 @@ class _IntroPageState extends State<IntroPage> {
                             duration: const Duration(milliseconds: 400),
                             curve: Curves.easeIn,
                           );
+                        } else {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LetsYouIn(),
+                            ),
+                          );
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -188,17 +211,27 @@ class _IntroPageState extends State<IntroPage> {
                                 : EdgeInsets.all(0),
                         minimumSize: Size(40, 40),
                         backgroundColor: Color.fromARGB(255, 9, 97, 245),
-                        
                       ),
                       child: Row(
                         children: [
-                          page == 2 ? Text("Get Started", style: TextStyle(color: Colors.white),) : Text(""),
+                          page == 2
+                              ? Text(
+                                "Get Started",
+                                style: TextStyle(color: Colors.white),
+                              )
+                              : Text(""),
                           Container(
                             width: 30,
                             height: 30,
-                            margin: page == 2 ? EdgeInsets.only(left: 10) : EdgeInsets.all(0),
+                            margin:
+                                page == 2
+                                    ? EdgeInsets.only(left: 10)
+                                    : EdgeInsets.all(0),
                             decoration: BoxDecoration(
-                              color: page == 2 ? Colors.white : Color.fromARGB(255, 9, 97, 245),
+                              color:
+                                  page == 2
+                                      ? Colors.white
+                                      : Color.fromARGB(255, 9, 97, 245),
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Icon(
