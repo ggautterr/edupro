@@ -8,6 +8,7 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.from(alpha: 255, red: 245, green: 249, blue: 255),
+        automaticallyImplyLeading: false,
       ),
       backgroundColor: Color.from(alpha: 255, red: 245, green: 249, blue: 255),
       body: Center(
