@@ -1,3 +1,4 @@
+import 'package:edupro/create_new_pin.dart';
 import 'package:flutter/material.dart';
 
 class FillYourProfile extends StatefulWidget {
@@ -242,10 +243,10 @@ class _FillYourProfileState extends State<FillYourProfile> {
             SizedBox(height: 10),
             ElevatedButton.icon(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => Login()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CreateNewPin()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.fromLTRB(20, 5, 8, 5),

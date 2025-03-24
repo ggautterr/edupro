@@ -1,3 +1,4 @@
+import 'package:edupro/forgot_password.dart';
 import 'package:edupro/register.dart';
 import 'package:flutter/material.dart';
 
@@ -128,7 +129,12 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.only(right: 15.0),
                     child: InkWell(
                       onTap: () {
-                        ///
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgotPassword(),
+                          ),
+                        );
                       },
                       child: Text(
                         "Forgot Password?",
