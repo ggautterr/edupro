@@ -1,3 +1,4 @@
+import 'package:edupro/fill_your_profile.dart';
 import 'package:edupro/login.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  bool isChecked = false;
+  bool isChecked = true;
 
   @override
   Widget build(BuildContext context) {
@@ -128,10 +129,10 @@ class _RegisterState extends State<Register> {
                 children: [
                   ElevatedButton.icon(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => Login()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FillYourProfile()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.fromLTRB(20, 5, 8, 5),
@@ -228,7 +229,7 @@ class _RegisterState extends State<Register> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don’t have an Account? ",
+                  "Already have an Account? ",
                   style: TextStyle(
                     fontSize: 12,
                     fontFamily: "Mulish",
@@ -238,7 +239,7 @@ class _RegisterState extends State<Register> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => Login()),
                     );
