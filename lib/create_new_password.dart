@@ -72,10 +72,58 @@ class CreateNewPassword extends StatelessWidget {
           ),
           ElevatedButton.icon(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => SetYourFingerprint()),
-              // );
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    backgroundColor: Color.fromRGBO(245, 249, 255, 1),
+                    content: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 30.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        spacing: 20,
+                        children: [
+                          Container(
+                            width: 120,
+                            height: 120,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(150),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/settings.png",
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "Congratulations",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Jost",
+                            ),
+                          ),
+                          Text(
+                            "Your Account is Ready to Use. You will be redirected to the Home Page in a Few Seconds.",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Jost",
+                            ),
+                          ),
+                          CircleAvatar(
+                            backgroundImage: AssetImage(
+                              "assets/images/load.png",
+                            ),
+                            backgroundColor: Colors.transparent,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.fromLTRB(20, 5, 8, 5),

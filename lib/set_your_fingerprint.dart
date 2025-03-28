@@ -79,22 +79,72 @@ class SetYourFingerprint extends StatelessWidget {
                         backgroundColor: Color.fromRGBO(232, 241, 255, 1),
                         minimumSize: Size(110, 50),
                         elevation: 0,
-                        side: BorderSide(color: Color.fromRGBO(180, 189, 196, 0.2), width: 2)
+                        side: BorderSide(
+                          color: Color.fromRGBO(180, 189, 196, 0.2),
+                          width: 2,
+                        ),
                       ),
                       child: Text(
                         "Skip",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Color.fromRGBO(32, 34, 68, 1), fontSize: 16),
+                        style: TextStyle(
+                          color: Color.fromRGBO(32, 34, 68, 1),
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                     ElevatedButton.icon(
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => SetYourFingerprint(),
-                        //   ),
-                        // );
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              backgroundColor: Color.fromRGBO(245, 249, 255, 1),
+                              content: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 30.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  spacing: 20,
+                                  children: [
+                                    Container(
+                                      width: 140,
+                                      height: 140,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(150),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            "assets/images/alert_avatar.png",
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      "Congratulations",
+                                      style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Jost",
+                                      ),
+                                    ),
+                                    Text(
+                                      "Your Account is Ready to Use. You will be redirected to the Home Page in a Few Seconds.",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Jost",
+                                      ),
+                                    ),
+                                    CircleAvatar(
+                                      backgroundImage: AssetImage("assets/images/load.png"),
+                                      backgroundColor: Colors.transparent,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.fromLTRB(20, 5, 8, 5),
