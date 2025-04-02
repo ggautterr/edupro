@@ -26,7 +26,7 @@ class LetsYouIn extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 220,
+              width: 225,
               child: Column(
                 spacing: 20,
                 children: [

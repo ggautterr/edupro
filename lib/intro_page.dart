@@ -53,7 +53,7 @@ class _IntroPageState extends State<IntroPage> {
           Column(
             children: [
               SizedBox(
-                height: 60,
+                height: 65,
                 child: PageView(
                   controller: pageController,
                   onPageChanged: (value) => setState(() => page = value),
