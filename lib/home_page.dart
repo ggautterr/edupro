@@ -8,8 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final PageController pageController = PageController();
-  int page = 0;
+  final PageController pageController = PageController(initialPage: 2);
+  int page = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -115,72 +115,90 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: 340,
-              height: 160,
-              decoration: BoxDecoration(
-                color: Color(0xff0961F5),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Expanded(
-                child: PageView(
-                  controller: pageController,
-                  onPageChanged: (value) => setState(() => page = value),
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: 3,
-                        children: [
-                          Text(
-                            "25% OFF*",
-                            style: TextStyle(
-                              fontFamily: 'Mulish',
-                              fontSize: 13,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            "Today’s Special",
-                            style: TextStyle(
-                              fontFamily: 'Mulish',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 170,
-                            child: Text(
-                              "Get a Discount for Every Course Order only Valid for Today.!",
-                              style: TextStyle(
-                                fontFamily: 'Mulish',
-                                fontSize: 11,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+              child: Stack(
+                children: [
+                  Container(
+                    width: 340,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      color: Color(0xff0961F5),
+                      borderRadius: BorderRadius.circular(15),
                     ),
-                    Image(image: NetworkImage('https://picsum.photos/340')),
-                    Image(image: NetworkImage('https://picsum.photos/350')),
-                  ],
-                ),
+                    child: PageView(
+                      controller: pageController,
+                      onPageChanged: (value) => setState(() => page = value),
+                      children: [
+                        Text(""),
+                        Text(""),
+                        Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            spacing: 3,
+                            children: [
+                              Text(
+                                "25% OFF*",
+                                style: TextStyle(
+                                  fontFamily: 'Mulish',
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                "Today’s Special",
+                                style: TextStyle(
+                                  fontFamily: 'Mulish',
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 170,
+                                child: Text(
+                                  "Get a Discount for Every Course Order only Valid for Today.!",
+                                  style: TextStyle(
+                                    fontFamily: 'Mulish',
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w800,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Text(""),
+                        Text(""),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    right: 130,
+                    bottom: 15,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 10.0,
+                      children: List.generate(5, (index) {
+                        return Container(
+                          width: (page == index) ? 20 : 10,
+                          height: 10,
+                          decoration: BoxDecoration(
+                            color:
+                                (page == index)
+                                    ? Color(0xFFFAC840)
+                                    : Color(0xFF1A6EFC),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              spacing: 10.0,
-              children: [
-                Text(page.toString()),
-                CircleAvatar(radius: 8, backgroundColor: Colors.white),
-                CircleAvatar(radius: 8, backgroundColor: Colors.amberAccent),
-                CircleAvatar(radius: 8, backgroundColor: Colors.white),
-              ],
             ),
           ],
         ),
