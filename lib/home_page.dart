@@ -11,6 +11,20 @@ class _HomePageState extends State<HomePage> {
   final PageController pageController = PageController(initialPage: 2);
   int page = 2;
 
+  List<String> categories = [
+    "3D Design",
+    "Arts & Humanities",
+    "Graphic Design",
+    "Web Development",
+    "SEO & Marketing",
+    "Finance & Accounting",
+    "Personal Development",
+    "Office Productivity",
+    "HR Management",
+  ];
+
+  int isCategory = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,6 +206,75 @@ class _HomePageState extends State<HomePage> {
                                     ? Color(0xFFFAC840)
                                     : Color(0xFF1A6EFC),
                             borderRadius: BorderRadius.circular(5),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 340,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Categories",
+                        style: TextStyle(
+                          fontFamily: 'Jost',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xff202244),
+                        ),
+                      ),
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.all(0),
+                        ).copyWith(
+                          overlayColor: WidgetStateProperty.all(
+                            Colors.transparent,
+                          ),
+                        ),
+                        onPressed: () {},
+                        label: Text(
+                          "SEE ALL",
+                          style: TextStyle(
+                            fontFamily: 'Mulish',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w800,
+                            color: Color(0xff0961F5),
+                          ),
+                        ),
+                        icon: Image.asset(
+                          'assets/images/arrow_right.png',
+                          width: 7,
+                        ),
+                        iconAlignment: IconAlignment.end,
+                      ),
+                    ],
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      spacing: 20,
+                      children: List.generate(categories.length, (index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              isCategory = index;
+                            });
+                          },
+                          child: Text(
+                            categories[index],
+                            style: TextStyle(
+                              color: isCategory == index ? Color(0xff0961F5) : Color(0xffA0A4AB),
+                              fontFamily: 'Mulish',
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         );
                       }),
