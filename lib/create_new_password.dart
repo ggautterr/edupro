@@ -1,3 +1,4 @@
+import 'package:edupro/home_page.dart';
 import 'package:flutter/material.dart';
 
 class CreateNewPassword extends StatelessWidget {
@@ -72,6 +73,10 @@ class CreateNewPassword extends StatelessWidget {
           ),
           ElevatedButton.icon(
             onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
               showDialog(
                 context: context,
                 builder: (context) {
@@ -89,9 +94,7 @@ class CreateNewPassword extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(150),
                               image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/settings.png",
-                                ),
+                                image: AssetImage("assets/images/settings.png"),
                               ),
                             ),
                           ),

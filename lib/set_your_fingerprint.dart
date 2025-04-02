@@ -1,3 +1,4 @@
+import 'package:edupro/home_page.dart';
 import 'package:flutter/material.dart';
 
 class SetYourFingerprint extends StatelessWidget {
@@ -95,13 +96,19 @@ class SetYourFingerprint extends StatelessWidget {
                     ),
                     ElevatedButton.icon(
                       onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
                         showDialog(
                           context: context,
                           builder: (context) {
                             return AlertDialog(
                               backgroundColor: Color.fromRGBO(245, 249, 255, 1),
                               content: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 30.0),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 30.0,
+                                ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   spacing: 20,
@@ -110,7 +117,9 @@ class SetYourFingerprint extends StatelessWidget {
                                       width: 140,
                                       height: 140,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(150),
+                                        borderRadius: BorderRadius.circular(
+                                          150,
+                                        ),
                                         image: DecorationImage(
                                           image: AssetImage(
                                             "assets/images/alert_avatar.png",
@@ -136,9 +145,11 @@ class SetYourFingerprint extends StatelessWidget {
                                       ),
                                     ),
                                     CircleAvatar(
-                                      backgroundImage: AssetImage("assets/images/load.png"),
+                                      backgroundImage: AssetImage(
+                                        "assets/images/load.png",
+                                      ),
                                       backgroundColor: Colors.transparent,
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),

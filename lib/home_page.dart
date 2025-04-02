@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Row(),
             Container(
-              width: 340,
+              width: 320,
               margin: EdgeInsets.only(top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              width: 340,
+              width: 320,
               height: 60,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(
-              width: 340,
+              width: 320,
               child: Stack(
                 children: [
                   Container(
@@ -215,7 +215,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(
-              width: 340,
+              width: 320,
               child: Column(
                 children: [
                   Row(

@@ -1,4 +1,5 @@
 import 'package:edupro/forgot_password.dart';
+import 'package:edupro/home_page.dart';
 import 'package:edupro/register.dart';
 import 'package:flutter/material.dart';
 
@@ -157,10 +158,10 @@ class _LoginState extends State<Login> {
                 children: [
                   ElevatedButton.icon(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => Login()),
-                      // );
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.fromLTRB(20, 5, 8, 5),
